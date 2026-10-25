@@ -20,6 +20,11 @@ precipitation, and the observation time in the location's time zone.
 The status bar then shows a weather icon and a value such as `Berlin: 12 °C`.
 Settings changes take effect immediately without restarting.
 
+![Location search for Berlin showing matches in Germany, New Hampshire, and New Jersey, with each result's region, country, and coordinates.](docs/images/location-search.png)
+
+*The native location picker in VS Code, using example search results. Compare
+regions, countries, and coordinates to choose the intended place.*
+
 ## Create a VSIX package
 
 A VSIX file is an installable extension package that you can share and install
