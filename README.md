@@ -64,6 +64,11 @@ for packaging and publishing options.
 
 ## Manual installation
 
+After a tagged build finishes, download its VSIX from
+[GitHub Releases](https://github.com/denga/vscode-weather-extension/releases).
+Release files are named `weather-v<version>.vsix`; use the downloaded file name
+in place of `weather.vsix` in the instructions below.
+
 You need VS Code **1.140.0 or later** and a `weather.vsix` file, either built using
 the steps above or received from someone else. Node.js and the source code are
 only needed to build the package, not to install or use it.
@@ -183,6 +188,37 @@ default. Set `VSCODE_EXECUTABLE_PATH` to use an existing installation, such as
 Run `npm run test:languages` to test English, German, and the English fallback
 for an unsupported display language. Runtime translations are in `l10n/`;
 command and settings translations are in `package.nls*.json`.
+
+## GitHub Actions and releases
+
+The [CI workflow](https://github.com/denga/vscode-weather-extension/blob/main/.github/workflows/ci.yml) runs on branch pushes, pull requests,
+and manual runs from the Actions tab. It installs dependencies with `npm ci`,
+compiles and lints the extension, and runs the extension-host tests in English,
+German, and French (to check the English fallback). Linux tests use a virtual
+display provided by `xvfb-run`.
+
+Pushing a tag beginning with `v` also runs the tests. After they pass, the release
+job checks that the tag exactly matches `v` followed by the version in
+`package.json`, creates the VSIX, and attaches it to a GitHub Release. For example,
+version `0.0.1` requires tag `v0.0.1` and produces `weather-v0.0.1.vsix`.
+
+To create the first release after committing the workflow:
+
+```sh
+git push origin main
+git tag v0.0.1
+git push origin v0.0.1
+```
+
+For later releases, update the version in `package.json` and `package-lock.json`
+(for example with `npm version patch --no-git-tag-version`), update the changelog,
+and commit those changes before creating and pushing the matching tag.
+
+Tags such as `v0.1.0-beta.1` are marked as prereleases. Re-running a tag workflow
+uploads the VSIX to the existing release and replaces an asset with the same name.
+Publication uses GitHub's automatic `GITHUB_TOKEN`; no additional secret or
+Marketplace account is required. Only the release job has `contents: write`
+permission. This workflow distributes VSIX files through GitHub Releases.
 
 ## License
 
