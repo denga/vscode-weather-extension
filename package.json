@@ -3,6 +3,7 @@
   "displayName": "Weather",
   "description": "%extension.description%",
   "version": "0.0.1",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.140.0"
   },
