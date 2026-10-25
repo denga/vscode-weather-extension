@@ -1,0 +1,8 @@
+{
+  "extension.description": "Aktuelles Wetter für einen konfigurierbaren Ort direkt in der Statusbar, mit Details beim Hovern.",
+  "command.refresh": "Wetter: Jetzt aktualisieren",
+  "command.openSettings": "Wetter: Einstellungen öffnen",
+  "configuration.location": "Ort für die Wetteranzeige, z. B. `Berlin`, `München` oder `Freiburg, DE`. Bei mehreren Treffern wird der erste verwendet. Leer lassen, um keine Wetterdaten abzurufen. Der Ort wird an Open-Meteo übermittelt.",
+  "configuration.refreshInterval": "Intervall für die automatische Aktualisierung in Minuten (5 bis 120).",
+  "command.chooseLocation": "Wetter: Ort auswählen"
+}

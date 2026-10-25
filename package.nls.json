@@ -1,0 +1,8 @@
+{
+  "extension.description": "Current weather for a configurable location in the status bar, with details on hover.",
+  "command.refresh": "Weather: Refresh now",
+  "command.openSettings": "Weather: Open settings",
+  "configuration.location": "Location for the weather display, e.g. `Berlin`, `Munich` or `Freiburg, DE`. The first match is used if there are multiple results. Leave empty to stop fetching weather data. The location is sent to Open-Meteo.",
+  "configuration.refreshInterval": "Automatic refresh interval in minutes (5 to 120).",
+  "command.chooseLocation": "Weather: Choose location"
+}
